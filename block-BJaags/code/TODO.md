@@ -41,7 +41,7 @@ function multiplyArrayByN(arr, n) {
 
 let numbers = multiplyArrayByN(marks);
 ```
-
+![](./assets/13007bc5-9542-4fdd-b791-5f5a868a78d2.jpeg)
 Create the execution context diagram of the following code line by line.
 
 ```js
