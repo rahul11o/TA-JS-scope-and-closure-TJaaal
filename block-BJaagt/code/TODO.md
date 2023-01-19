@@ -37,19 +37,21 @@ If statement creates block-scope, hence any variable defined inside if statement
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // output
+console.log(useranme); //Arya
 ```
+Keyword 'var' is not block-scoped as the keyword 'let' and 'const' , hence variable created inside using  'var'  inside block would not be scoped and can be used globally.
 
 5. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
+var username = 'Arya';
 let username = 'John';
 if (true) {
-  var username = 'Arya';
+var username = 'Arya';
 }
-console.log(useranme); // output
+console.log(username); //  Identifier 'username' has already been declared
 ```
-
+If a variable is already defined using keyword 'let' in a scope, you cannot define the same variable second time in the scame scope, if done it would throw an error saying "  Identifier 'username' has already been declared".
 6. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
@@ -57,8 +59,9 @@ let username = 'John';
 if (true) {
   let username = 'Arya';
 }
-console.log(useranme); // output
+console.log(username); // "john"
 ```
+If you are creating the same variable with same or different value in two different scope, that's allright to do.
 
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -68,23 +71,44 @@ function sayHello() {
   let username = 'Arya';
 }
 sayHello();
-console.log(useranme); // output
+console.log(username); // john
 ```
+Variable created with the keyword 'let' inside the function is scoped and got nothing to do with stuff goung outside that function.
 
 8. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
 for (var i = 0; i < 10; i++) {
-  console.log(i, 'First'); // output
+ console.log(i, 'First');
+ // 0 'First'
+//  1 'First'
+//  2 'First'
+//  3 'First'
+//  4 'First'
+//  5 'First'
+//  6 'First'
+//  7 'First'
+//  8 'First'
+//  9 'First'
 }
-console.log(i, 'Second'); // output
+console.log(i, 'Second'); // 10, second
 ```
 
 9. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
 for (let i = 0; i < 10; i++) {
-  console.log(i, 'First'); // output
+  console.log(i, 'First'); 
+//  0 'First'
+//  1 'First'
+//  2 'First'
+//  3 'First'
+//  4 'First'
+//  5 'First'
+//  6 'First'
+//  7 'First'
+//  8 'First'
+//  9 'First'
 }
-console.log(i, 'Second'); // output
+console.log(i, 'Second'); // 'i' is not defined.
 ```
