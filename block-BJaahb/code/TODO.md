@@ -11,6 +11,7 @@ function outer() {
 }
 let getSum = outer();
 let num = getSum();
+img. Use ![](./912df9fa-ca35-4971-9162-ec35faf438c4.jpeg) 
 ```
 
 2.
