@@ -20,12 +20,12 @@ function getCounter() {
 };
 let counter = getCounter()
 
-counter.value();  //
-counter.increment(); // 
-counter.increment(); // 
-counter.value(); // 
-counter.decrement(); // 
-counter.value(
+counter.value();  //0
+counter.increment(); //undefined
+counter.increment(); // undefined
+counter.value(); // 2
+counter.decrement(); // undefined
+counter.value(); // 1
 ```
 
 
@@ -56,13 +56,13 @@ function makeCounter() {
 let counter1 = makeCounter();
 let counter2 = makeCounter();
 
-console.log(counter1.value());  // 
+console.log(counter1.value()); // 0
 
-counter1.increment();
-counter1.increment();
-console.log(counter1.value()); // 
+counter1.increment();//undefined
+counter1.increment();//undefined
+console.log(counter1.value()); // 2
 
-counter1.decrement();
-console.log(counter1.value()); // 
-console.log(counter2.value()); // 
+counter1.decrement();// undefined
+console.log(counter1.value()); // 1
+console.log(counter2.value()); // 0
 ```
