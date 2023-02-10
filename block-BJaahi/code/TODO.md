@@ -198,7 +198,8 @@ let age;
 
 console.log(name);
 console.log(age);
-
+name = 'Lydia';
+age = 21;
 
 ```
 
