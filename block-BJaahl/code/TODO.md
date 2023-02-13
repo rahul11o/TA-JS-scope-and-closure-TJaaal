@@ -2,7 +2,13 @@
 
 ```js
 function once(cb) {
-  
+  let isCalled = false;
+  return function(){
+    if(!isCalled){
+      cb();
+      isCalled = true;
+    }
+  }
 };
 
 // TEST
@@ -17,8 +23,14 @@ log(); // return undefinde (can't be called twice)
 2. Change the above function in such a way that the function accepts two parameter a callback function and parameter for the callback function. When calling the function pass the parameters.
 
 ```js
-function once(cb) {
-  // your code goes here
+function once(cb, param) {
+  let isCalled = false;
+  return function(){
+    if(!isCalled){
+      cb(param)
+      isCalled = true;
+    }
+  }
 }
 
 // TEST
@@ -34,8 +46,17 @@ log(); // return undefinde (can't be called twice)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ```js
-function once(cb) {
-  // your code goes here
+function once(cb, ...paras) {
+  let isCalled = false;
+  return function(){
+    if(!isCalled){
+      for(i =0; i<paras.length; i++){
+        cb(paras[i]);
+      }
+      isCalled = true;
+    }
+
+  }
 }
 
 // TEST
@@ -48,11 +69,19 @@ log(); // return undefinde (can't be called twice)
 
 ```js
 function nTimes(cb, times, ...rest) {
-  // your code goes here
+  let count = 1;
+  return function(){
+    if(count <= times){
+      for(let i =0; i<rest.length ; i++){
+      cb(rest[i], count)
+      count++;
+    }
+    }
+  }
 }
 
 // TEST
-let log = (msg) => console.log(msg);
+let log = (msg1, msg2) => console.log(msg1,msg2);
 let logThreeTimes = nTimes(log, 3, 'Hello Arya');
 logThreeTimes(); // log message "Hello Arya" (1)
 logThreeTimes(); // log message "Hello Arya" (2)
@@ -60,18 +89,3 @@ logThreeTimes(); // log message "Hello Arya" (3)
 log(); // return undefinde (can't be called)
 ```
 
-4. Create a new function `nTimes` whose 1st parameter is a callback function, 2nd parameter is the number of times the function should be called and 3rd ... nth parameter should be passed to the callback function.
-
-```js
-function nTimes(cb, times, ...rest) {
-  // your code goes here
-}
-
-// TEST
-let log = (msg) => console.log(msg);
-let logThreeTimes = nTimes(log, 3, 'Hello Arya');
-logThreeTimes(); // log message "Hello Arya" (1)
-logThreeTimes(); // log message "Hello Arya" (2)
-logThreeTimes(); // log message "Hello Arya" (3)
-log(); // return undefinde (can't be called)
-```
