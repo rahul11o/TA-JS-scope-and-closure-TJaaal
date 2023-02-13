@@ -2,8 +2,8 @@
 
 ```js
 function once(cb) {
-  // your code goes here
-}
+  
+};
 
 // TEST
 function sayHello() {
@@ -42,6 +42,22 @@ function once(cb) {
 let log = once(console.log, 'Message one', 'Message Two');
 log(); // log message "Message One Message Two"
 log(); // return undefinde (can't be called twice)
+```
+
+4. Create a new function `nTimes` whose 1st parameter is a callback function, 2nd parameter is the number of times the function should be called and 3rd ... nth parameter should be passed to the callback function.
+
+```js
+function nTimes(cb, times, ...rest) {
+  // your code goes here
+}
+
+// TEST
+let log = (msg) => console.log(msg);
+let logThreeTimes = nTimes(log, 3, 'Hello Arya');
+logThreeTimes(); // log message "Hello Arya" (1)
+logThreeTimes(); // log message "Hello Arya" (2)
+logThreeTimes(); // log message "Hello Arya" (3)
+log(); // return undefinde (can't be called)
 ```
 
 4. Create a new function `nTimes` whose 1st parameter is a callback function, 2nd parameter is the number of times the function should be called and 3rd ... nth parameter should be passed to the callback function.
